@@ -1,6 +1,9 @@
 package racinggame.model;
 
+import static java.util.Comparator.*;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -8,6 +11,10 @@ public class Cars {
 
 	private Cars(List<Car> values) {
 		this.values = values;
+	}
+
+	public static Cars from(List<Car> cars) {
+		return new Cars(cars);
 	}
 
 	public static Cars from(String names) {
@@ -30,5 +37,24 @@ public class Cars {
 
 	public List<Car> getValues() {
 		return values;
+	}
+
+	public Position getMaxPosition() {
+		Car maxPositionCar = Collections.max(values, comparing(Car::getPosition));
+		return maxPositionCar.getPosition();
+	}
+
+	public Cars getCarsEqualPosition(Position maxPosition) {
+		List<Car> winnerCars = new ArrayList<>();
+		for (Car car : values) {
+			addCarIfMaxPosition(winnerCars, car, maxPosition);
+		}
+		return Cars.from(winnerCars);
+	}
+
+	private void addCarIfMaxPosition(List<Car> winnerCars, Car car, Position maxPosition) {
+		if (car.isSamePosition(maxPosition)) {
+			winnerCars.add(car);
+		}
 	}
 }

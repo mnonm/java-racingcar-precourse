@@ -35,4 +35,8 @@ public class Car {
 	public Position getPosition() {
 		return position;
 	}
+
+	public boolean isSamePosition(Position maxPosition) {
+		return position.equals(maxPosition);
+	}
 }
