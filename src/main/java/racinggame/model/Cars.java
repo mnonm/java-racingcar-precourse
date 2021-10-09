@@ -29,6 +29,12 @@ public class Cars {
 		return new Cars(cars);
 	}
 
+	public void start() {
+		for (Car car : values) {
+			car.start(Randoms.pickNumberInRange(0, 9));
+		}
+	}
+
 	public static boolean isValidNames(String inputNames) {
 		String[] nameArray = inputNames.split(",");
 		boolean isAllValid = true;
@@ -58,12 +64,6 @@ public class Cars {
 	private void addCarIfMaxPosition(List<Car> winnerCars, Car car, Position maxPosition) {
 		if (car.isSamePosition(maxPosition)) {
 			winnerCars.add(car);
-		}
-	}
-
-	public void start() {
-		for (Car car : values) {
-			car.start(Randoms.pickNumberInRange(0, 9));
 		}
 	}
 }
