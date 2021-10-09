@@ -10,5 +10,6 @@ public class CarTest {
 		Car car = Car.create("test");
 
 		assertThat(car.getName().getValue()).isEqualTo("test");
+		assertThat(car.getPosition().getValue()).isEqualTo(0);
 	}
 }

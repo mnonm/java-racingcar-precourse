@@ -2,9 +2,11 @@ package racinggame.model;
 
 public class Car {
 	private final Name name;
+	private final Position position;
 
 	private Car(Name name) {
 		this.name = name;
+		this.position = Position.init();
 	}
 
 	public static Car create(String carName) {
@@ -14,5 +16,9 @@ public class Car {
 
 	public Name getName() {
 		return name;
+	}
+
+	public Position getPosition() {
+		return position;
 	}
 }
