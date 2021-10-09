@@ -10,6 +10,9 @@ public class Name {
 	}
 
 	public static Name from(String value) {
+		if (!isValid(value)) {
+			throw new IllegalArgumentException("자동차 이름의 길이는 5자 이하만 가능합니다.");
+		}
 		return new Name(value);
 	}
 

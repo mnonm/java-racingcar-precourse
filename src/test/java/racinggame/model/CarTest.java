@@ -14,6 +14,12 @@ public class CarTest {
 	}
 
 	@Test
+	void 자동차_6자_이상_이름인_경우_에러() {
+		assertThatIllegalArgumentException()
+			.isThrownBy(() -> Car.create("123456"));
+	}
+
+	@Test
 	void 랜덤값이_4이상일_경우_전진() {
 		Car car = Car.create("test");
 
