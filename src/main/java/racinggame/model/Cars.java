@@ -27,7 +27,8 @@ public class Cars {
 		return new Cars(cars);
 	}
 
-	private static boolean isNamesValid(String[] nameArray) {
+	public static boolean isValidNames(String inputNames) {
+		String[] nameArray = inputNames.split(",");
 		boolean isAllValid = true;
 		for (String name : nameArray) {
 			isAllValid = isAllValid && Name.isValid(name);

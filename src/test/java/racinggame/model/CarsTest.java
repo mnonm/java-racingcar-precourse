@@ -17,4 +17,14 @@ class CarsTest {
 		assertThatIllegalArgumentException()
 			.isThrownBy(() -> Cars.from("1,123456,2,3,4,5"));
 	}
+
+	@Test
+	void 이름이_5자_초과_유효성_검사() {
+		assertThat(Cars.isValidNames("1,123456,2,3,4,5,")).isFalse();
+	}
+
+	@Test
+	void 이름이_5자_이하_유효성_검사() {
+		assertThat(Cars.isValidNames("1,12345,2,3,4,5,")).isTrue();
+	}
 }
