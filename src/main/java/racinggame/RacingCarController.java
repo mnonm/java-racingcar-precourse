@@ -6,9 +6,11 @@ import racinggame.model.TryCount;
 
 public class RacingCarController {
 	private final RacingCarView racingCarView;
+	private final RacingCarOutputView racingCarOutputView;
 
-	public RacingCarController(RacingCarView racingCarView) {
+	public RacingCarController(RacingCarView racingCarView, RacingCarOutputView racingCarOutputView) {
 		this.racingCarView = racingCarView;
+		this.racingCarOutputView = racingCarOutputView;
 	}
 
 	public void gameStart() {
@@ -16,7 +18,15 @@ public class RacingCarController {
 		String inputNames = readNameUntilValid();
 		racingCarView.printRepeatCountMessage();
 		TryCount tryCount = readTryCountUntilValid();
-		Cars car = Cars.from(inputNames);
+		Cars cars = Cars.from(inputNames);
+		startAndPrintResult(tryCount, cars);
+	}
+
+	private void startAndPrintResult(TryCount tryCount, Cars cars) {
+		for (int i = 0; i < tryCount.getValue(); i++) {
+			cars.start();
+			racingCarOutputView.printResult(cars);
+		}
 	}
 
 	private TryCount readTryCountUntilValid() {

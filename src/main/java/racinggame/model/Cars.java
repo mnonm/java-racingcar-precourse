@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import nextstep.utils.Randoms;
+
 public class Cars {
 	private List<Car> values;
 
@@ -56,6 +58,12 @@ public class Cars {
 	private void addCarIfMaxPosition(List<Car> winnerCars, Car car, Position maxPosition) {
 		if (car.isSamePosition(maxPosition)) {
 			winnerCars.add(car);
+		}
+	}
+
+	public void start() {
+		for (Car car : values) {
+			car.start(Randoms.pickNumberInRange(0, 9));
 		}
 	}
 }

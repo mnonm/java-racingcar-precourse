@@ -16,4 +16,8 @@ public class TryCount {
 	public static boolean isValid(String input) {
 		return input.matches(NUMBER_PATTERN);
 	}
+
+	public int getValue() {
+		return value;
+	}
 }
