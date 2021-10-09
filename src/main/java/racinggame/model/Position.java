@@ -16,4 +16,8 @@ public class Position {
 	public int getValue() {
 		return value;
 	}
+
+	public void forward() {
+		this.value++;
+	}
 }

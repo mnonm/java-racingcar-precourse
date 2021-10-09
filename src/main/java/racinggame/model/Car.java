@@ -1,6 +1,8 @@
 package racinggame.model;
 
 public class Car {
+	private static final int MOVE_CONDITION = 4;
+
 	private final Name name;
 	private final Position position;
 
@@ -12,6 +14,18 @@ public class Car {
 	public static Car create(String carName) {
 		Name name = Name.from(carName);
 		return new Car(name);
+	}
+
+	public void start(int value) {
+		if (value < MOVE_CONDITION) {
+			return;
+		}
+
+		moveForward();
+	}
+
+	private void moveForward() {
+		position.forward();
 	}
 
 	public Name getName() {
