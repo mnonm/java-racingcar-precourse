@@ -9,16 +9,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class NameTest {
 	@Test
 	void 자동차_이름_5자_넘는_경우() {
-		Name result = Name.from("123456");
-
-		assertThat(result.isValid()).isFalse();
+		assertThat(Name.isValid("123456")).isFalse();
 	}
 
 	@ParameterizedTest
 	@ValueSource(strings = {"", "1", "12345"})
-	void 자동차_이름_5자_이하인_경우() {
-		Name result = Name.from("12345");
-
-		assertThat(result.isValid()).isTrue();
+	void 자동차_이름_5자_이하인_경우(String name) {
+		assertThat(Name.isValid(name)).isTrue();
 	}
 }

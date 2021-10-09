@@ -13,7 +13,7 @@ public class Name {
 		return new Name(value);
 	}
 
-	public boolean isValid() {
+	public static boolean isValid(String value) {
 		return value.length() <= MAX_LENGTH;
 	}
 
