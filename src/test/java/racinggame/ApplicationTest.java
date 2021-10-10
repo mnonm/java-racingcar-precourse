@@ -1,9 +1,14 @@
 package racinggame;
 
-import nextstep.test.NSTest;
+import static org.mockito.Mockito.*;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+
+import nextstep.test.NSTest;
+import nextstep.utils.Randoms;
 
 public class ApplicationTest extends NSTest {
     private static final int MOVING_FORWARD = 4;
@@ -30,6 +35,14 @@ public class ApplicationTest extends NSTest {
             runNoLineFound("pobi,javaji");
             verify(ERROR_MESSAGE);
         });
+    }
+
+    @Test
+    void 시도횟수에_대한_예외_처리() {
+        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            runNoLineFound("pobi,woni", "any string", "-1", "0.1", "0", "10.3");
+            verify(ERROR_MESSAGE);
+        }
     }
 
     @AfterEach
