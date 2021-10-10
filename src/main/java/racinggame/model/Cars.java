@@ -19,11 +19,9 @@ public class Cars {
 		return new Cars(cars);
 	}
 
-	public static Cars from(String names) {
-		String[] nameArray = names.split(",");
-
+	public static Cars from(Names names) {
 		List<Car> cars = new ArrayList<>();
-		for (String name : nameArray) {
+		for (Name name : names.getValues()) {
 			cars.add(Car.create(name));
 		}
 		return new Cars(cars);

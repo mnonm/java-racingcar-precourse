@@ -18,11 +18,25 @@ public class Names {
 		return new Names(names);
 	}
 
+	public static Names of(String inputNames) {
+		List<Name> names = new ArrayList<>();
+		String[] nameArray = inputNames.split(",");
+		for (String name : nameArray) {
+			names.add(Name.from(name));
+		}
+
+		return new Names(names);
+	}
+
 	public List<String> getNameValues() {
 		List<String> nameValues = new ArrayList<>();
 		for (Name name : values) {
 			nameValues.add(name.getValue());
 		}
 		return nameValues;
+	}
+
+	public List<Name> getValues() {
+		return values;
 	}
 }

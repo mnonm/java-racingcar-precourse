@@ -11,9 +11,8 @@ public class Car {
 		this.position = Position.init();
 	}
 
-	public static Car create(String carName) {
-		Name name = Name.from(carName);
-		return new Car(name);
+	public static Car create(Name carName) {
+		return new Car(carName);
 	}
 
 	public void start(int value) {

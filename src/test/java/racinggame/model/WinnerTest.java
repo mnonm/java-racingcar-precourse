@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class WinnerTest {
 	@Test
 	void 자동차가_하나만_있는_경우() {
-		Cars cars = Cars.from("1");
+		Cars cars = Cars.from(Names.of("1"));
 
 		Winner winner = Winner.from(cars);
 
@@ -20,8 +20,8 @@ class WinnerTest {
 	@Test
 	void 우승자_구하기() {
 		// given
-		Car car1 = Car.create("1");
-		Car car2 = Car.create("2");
+		Car car1 = Car.create(Name.from("1"));
+		Car car2 = Car.create(Name.from("2"));
 
 		car1.start(2);
 		car2.start(5);
@@ -40,9 +40,9 @@ class WinnerTest {
 	@Test
 	void 우승자_여러명인_경우() {
 		// given
-		Car car1 = Car.create("1");
-		Car car2 = Car.create("2");
-		Car car3 = Car.create("3");
+		Car car1 = Car.create(Name.from("1"));
+		Car car2 = Car.create(Name.from("2"));
+		Car car3 = Car.create(Name.from("3"));
 
 		car1.start(2);
 		car2.start(5);

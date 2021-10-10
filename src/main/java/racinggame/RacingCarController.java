@@ -2,6 +2,7 @@ package racinggame;
 
 import nextstep.utils.Console;
 import racinggame.model.Cars;
+import racinggame.model.Names;
 import racinggame.model.TryCount;
 import racinggame.model.Winner;
 
@@ -16,7 +17,7 @@ public class RacingCarController {
 
 	public void gameStart() {
 		racingCarView.printStartMessage();
-		String inputNames = readNameUntilValid();
+		Names inputNames = readNameUntilValid();
 		racingCarView.printRepeatCountMessage();
 		TryCount tryCount = readTryCountUntilValid();
 		Cars cars = Cars.from(inputNames);
@@ -47,13 +48,13 @@ public class RacingCarController {
 		return TryCount.from(tryCountStr);
 	}
 
-	private String readNameUntilValid() {
+	private Names readNameUntilValid() {
 		String inputNames = Console.readLine();
 		while (!Cars.isValidNames(inputNames)) {
 			racingCarView.printErrorMessageForName();
 			inputNames = Console.readLine();
 		}
-		return inputNames;
+		return Names.of(inputNames);
 	}
 
 }
