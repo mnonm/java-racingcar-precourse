@@ -14,7 +14,11 @@ public class TryCount {
 	}
 
 	public static boolean isValid(String input) {
-		return input.matches(NUMBER_PATTERN);
+		return input.matches(NUMBER_PATTERN) && isMoreThanOne(input);
+	}
+
+	private static boolean isMoreThanOne(String input) {
+		return Integer.parseInt(input) > 0;
 	}
 
 	public int getValue() {

@@ -14,6 +14,6 @@ public class RacingCarView {
 	}
 
 	public void printErrorMessageForTryCount() {
-		System.out.println("[ERROR] 반복 횟수는 숫자만 가능합니다. 다시 입력하세요.");
+		System.out.println("[ERROR] 반복 횟수는 1이상의 숫자만 가능합니다. 다시 입력하세요.");
 	}
 }
