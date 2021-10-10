@@ -1,10 +1,12 @@
-package racinggame;
+package racinggame.controller;
 
 import nextstep.utils.Console;
 import racinggame.model.Cars;
 import racinggame.model.Names;
 import racinggame.model.TryCount;
 import racinggame.model.Winner;
+import racinggame.view.RacingCarOutputView;
+import racinggame.view.RacingCarView;
 
 public class RacingCarController {
 	private final RacingCarView racingCarView;
